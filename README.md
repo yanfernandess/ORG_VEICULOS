@@ -13,7 +13,7 @@ porém a gerência destes carros não é bem administrada. Isto leva a problemas
 ou pessoas indo a pé com carro disponível. Este problema foi apresentado à área de TI, o que fazer para solucioná-lo?
 
 
---------------------------Sobre a proposta------------------------------------------------------------------------------------------------------------------------
+--------------------------Sobre a proposta-----------------------------------------------------------
 
 Quando o Tiago me passou a proposta e o desafio para realizar este projeto eu sabia que não seria fácil por não ter experiência como desenvolvedor, então
 comecei a estudar sobre e consultar pessoas que já vivenciaram esse desafio e saber por onde eu começaria e cheguei a conclusão que iria começar com um 
@@ -25,7 +25,7 @@ consegui resolver em 4 dias (claro que tive que estudar e questionar muito sobre
 a questão de códificação do VBA pois é muito diferente do que estava acostumado a realizar e foi um desafio muito bom e de muito aprendizado, tentei dar meu melhor.
 
 
---------------------------Sobre o desafio----------------------------------------------------------------------------------------------------------------------------
+--------------------------Sobre o desafio------------------------------------------------------------
 Criei um sistema que tem 7 telas:
 
 Login
@@ -45,7 +45,8 @@ de pesquisa da tela_aluguel e dar um clique no botão salvar ai ele registra que
 constante para que tenha a informação de quantos veículos temos para uso e quantos estão sendo usados isso organiza tudo novamente.
 
 
------------------------------ Sobre a codificação usada--------------------------------------------------------------------------------------------------------------
+----------------------------- Sobre a codificação usada---------------------------------------------
+
 Vou citar abaixo sobre as codificações usadas nas telas.
 
 
