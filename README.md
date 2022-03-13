@@ -15,7 +15,7 @@ ou pessoas indo a pé com carro disponível. Este problema foi apresentado à á
 
 --------------------------Sobre a proposta-----------------------------------------------------------
 
-Quando o Tiago me passou a proposta e o desafio para realizar este projeto eu sabia que não seria fácil por não ter experiência como desenvolvedor, então
+Quando me passaram a proposta e o desafio para realizar este projeto eu sabia que não seria fácil por não ter experiência como desenvolvedor, então
 comecei a estudar sobre e consultar pessoas que já vivenciaram esse desafio e saber por onde eu começaria e cheguei a conclusão que iria começar com um 
 rascunho no caderno fazendo um diagrama e escrevendo todas as minhas ideias, como eu acho que resolveria o problema de Aluguel vs Funcionários então saiu as primeiras ideias 
 e comecei a desenvolver em java mas como eu vi que o desafio também pedia poucos dias e eficiência decidi escolher o Access e VBA para desenvolver as tabelas,
