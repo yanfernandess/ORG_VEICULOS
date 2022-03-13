@@ -1,0 +1,73 @@
+VERSION 1.0 CLASS
+BEGIN
+  MultiUse = -1  'True
+END
+Attribute VB_Name = "Form_FRM_ALUGUEL"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Compare Database
+
+Private Sub CMD_CADASTRAR_Click()
+    Dim CNN As ADODB.Connection
+    Dim RS As New ADODB.Recordset
+    
+    Set CNN = CurrentProject.Connection
+    If IsNull(DT_CHECK_OUT) Then
+        RS.Open "SELECT * FROM TBL_ALUGUEL", CNN, adOpenKeyset, adLockOptimistic
+        RS.AddNew
+    Else
+        RS.Open "SELECT * FROM TBL_ALUGUEL WHERE NUM_ID =" & NUM_ID, CNN, adOpenKeyset, adLockOptimistic
+    End If
+    RS!NUM_ID_VEICULO = NUM_ID_VEICULO.Column(0)
+    RS!NUM_ID_FUNCIONARIO = NUM_ID_FUNCIONARIO.Column(0)
+    RS!DT_CHECK_IN = DT_CHECK_IN
+    RS!DT_CHECK_OUT = DT_CHECK_OUT
+    RS!VLR_TOTAL = VLR_TOTAL
+    RS.Update
+           
+    NUM_ID = Empty
+    NUM_ID_VEICULO = Empty
+    NUM_ID_FUNCIONARIO = Empty
+    DT_CHECK_IN = Empty
+    DT_CHECK_OUT = Empty
+    VLR_TOTAL = Empty
+    DT_CHECK_IN = Date
+    
+    RS.Close
+    CNN.Close
+    
+    QRY_VEICULOS_ALUGADOS_subformulário.Requery
+    
+    NUM_ID_VEICULO.RowSource = "SELECT TBL_VEICULOS.NUM_ID, TBL_VEICULOS.STR_MARCA, TBL_VEICULOS.STR_PLACA FROM TBL_VEICULOS LEFT JOIN QRY_ALUGADOS ON TBL_VEICULOS.NUM_ID = QRY_ALUGADOS.NUM_ID_VEICULO WHERE (((QRY_ALUGADOS.DT_CHECK_IN) Is Null)); "
+    NUM_ID_FUNCIONARIO.RowSource = "SELECT TBL_FUNCIONARIO.NUM_ID, TBL_FUNCIONARIO.STR_NOME, TBL_FUNCIONARIO.STR_AREA FROM TBL_FUNCIONARIO LEFT JOIN QRY_ALUGADOS ON TBL_FUNCIONARIO.NUM_ID = QRY_ALUGADOS.NUM_ID_FUNCIONARIO WHERE (((QRY_ALUGADOS.NUM_ID_FUNCIONARIO) Is Null));"
+    
+    NUM_ID_VEICULO.Requery
+    NUM_ID_FUNCIONARIO.Requery
+    
+    NUM_ID_VEICULO.Enabled = True
+    NUM_ID_FUNCIONARIO.Enabled = True
+    DT_CHECK_IN.Enabled = False
+    DT_CHECK_OUT.Enabled = False
+    VLR_TOTAL.Enabled = False
+    
+    MsgBox "Salvo com sucesso !!!"
+        
+End Sub
+
+Private Sub CMD_CHECK_OUT_Click()
+    
+End Sub
+
+Private Sub Form_Open(Cancel As Integer)
+    NUM_ID_VEICULO.Enabled = True
+    NUM_ID_FUNCIONARIO.Enabled = True
+    DT_CHECK_IN.Enabled = False
+    DT_CHECK_OUT.Enabled = False
+    VLR_TOTAL.Enabled = False
+    
+    DT_CHECK_IN = Date
+    NUM_ID_VEICULO.RowSource = "SELECT TBL_VEICULOS.NUM_ID, TBL_VEICULOS.STR_MARCA, TBL_VEICULOS.STR_PLACA FROM TBL_VEICULOS LEFT JOIN QRY_ALUGADOS ON TBL_VEICULOS.NUM_ID = QRY_ALUGADOS.NUM_ID_VEICULO WHERE (((QRY_ALUGADOS.DT_CHECK_IN) Is Null));  "
+    NUM_ID_FUNCIONARIO.RowSource = "SELECT TBL_FUNCIONARIO.NUM_ID, TBL_FUNCIONARIO.STR_NOME, TBL_FUNCIONARIO.STR_AREA FROM TBL_FUNCIONARIO LEFT JOIN QRY_ALUGADOS ON TBL_FUNCIONARIO.NUM_ID = QRY_ALUGADOS.NUM_ID_FUNCIONARIO WHERE (((QRY_ALUGADOS.NUM_ID_FUNCIONARIO) Is Null));"
+End Sub
